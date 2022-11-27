@@ -36,14 +36,14 @@ router.post("/:food", (req, res) => {
         }
         console.log("Data saved!");
     })*/
-    listedFood = JSON.stringify(food).split(",")
+    /*listedFood = JSON.stringify(food).split(",")
     postReq = JSON.parse(listedFood);
     console.log(postReq.name)
-
+    */
     //listedFood.replace(/"/,'')
     
     
-    res.write("Food name: "+ postReq.name +"<br>"+"Instructions: "+ postReq.instruction +"<br>"+"Ingredients: "+ postReq.ingredients)
+    res.write("Food name: "+ req.params.food/*postReq.name*/ +"<br>"+"Instructions: "+ /*postReq.instruction +*/"<br>"+"Ingredients: "/*+ postReq.ingredients*/)
     //res.send(req.body);
     res.end()
 }) 
