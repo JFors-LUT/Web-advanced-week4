@@ -1,4 +1,4 @@
-/*
+
 const express = require("express");
 const os = require("os");
 const path = require("path");
@@ -25,4 +25,3 @@ app.get("/recipe/:food", (req, res) => {
 app.use("/recipe", require("./api/recipe.js"));
 
 app.listen(port, () => console.log(`Server listening a port ${port}!`));
-*/
