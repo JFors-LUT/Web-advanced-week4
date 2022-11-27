@@ -22,11 +22,12 @@ router.get("/:food", (req, res) => {
             ingredients: ["list of strings"]}
 
     res.json(food);
-
 })
-/*
-router.post("/", (req, res) => {
-    poems.push(req.body);
+
+
+
+router.post("/:food", (req, res) => {
+  /*  poems.push(req.body);
     
     fs.writeFile("./data/poems.json", JSON.stringify(poems), err => {
         if(err) {
@@ -34,11 +35,16 @@ router.post("/", (req, res) => {
             return;
         }
         console.log("Data saved!");
-    })
-    res.send(req.body);
-    //console.log("Poem: " + JSON.stringify(req.body) + " added!");
+    })*/
+    listedFood = JSON.stringify(food).split(",")
+
+    //listedFood.replace(/"/,'')
+    
+    
+    res.write(listedFood[0] +"<br>"+ listedFood[1] +"<br>"+ listedFood[2])
+    //res.send(req.body);
+    res.end()
 }) 
 
-*/
 
 module.exports = router;
