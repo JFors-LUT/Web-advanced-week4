@@ -16,8 +16,11 @@ router.get("/", (req, res) => {
 
 })*/
 
-router.get("/:id", (req, res) => {
-    food = {food: req.params.id}
+router.get("/:food", (req, res) => {
+    food = {name: req.params.food, 
+            instruction: ["list of strings"],
+            ingredients: ["list of strings"]}
+
     res.json(food);
 
 })
