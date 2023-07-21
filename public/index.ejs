@@ -13,7 +13,7 @@
     <div class="container">
       
       <% if (recipe.name) { %>
-        <div>
+        <div class="col">
           <h1>Recipe: <%= recipe.name %></h1>
           <h2>Instructions:</h2>
           <ul id="instructions">
@@ -34,7 +34,7 @@
         </div>
       <% } %>
       
-    <div>
+    <div class="col">
       <h1>Add New Recipe</h1>
       <label for="name-text">Name:</label>
       <input type="text" id="name-text">

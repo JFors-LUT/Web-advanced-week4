@@ -16,6 +16,13 @@ const recipes = {
     instructions: ['set oven to 200', 'put pizza in oven', 'bake for 12 min', "put ketchup on top"],
     ingredients: ["frozen pizza", "ketchup"],
   },
+
+  Casserole:
+  {
+    name: 'Casserole',
+    instructions: ['set oven to 200', 'put cassabox in oven', 'bake for 26 min'],
+    ingredients: ["frozen pizza", "ketchup"],
+  },
 };
 
 
@@ -40,7 +47,7 @@ router.post('/', (req, res) => {
   }
 
   //add recipe
-  recipes[name.toLowerCase()] = {
+  recipes[name] = {
     name,
     instructions: instructions,
     ingredients: ingredients,
@@ -49,7 +56,7 @@ router.post('/', (req, res) => {
   console.log(recipes)
 
   // Return the newly added recipe as a JSON response
-  res.status(201).json(recipes[name.toLowerCase()]);
+  res.status(200).json(recipes[name.toLowerCase()]);
 });
 
 
