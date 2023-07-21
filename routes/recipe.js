@@ -30,6 +30,12 @@ const recipes = {
     instructions: ['set oven to 350', 'put lasagna in oven', 'bake for 8 min','pour milk in glass'],
     ingredients: ["frozen Lasagna", "milk"],
   },
+  Tikka_Masala:
+  {
+    name: 'Tikka_Masala',
+    instructions: ['lahti', 'ku', 'tikka','massalasta'],
+    ingredients: ["tikka", "curry"],
+  },
 };
 
 
