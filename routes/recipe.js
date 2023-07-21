@@ -38,12 +38,12 @@ router.get('/:food', (req, res) => {
   const food = req.params.food;
   const body = recipes[food];
   if (acceptHeader && acceptHeader.includes('application/xml')){
-    res.render('index', {'response':{ body }});
+    res.render('index', {'response': body });
     
   }else if (body) {
-    res.json({response:{ body }});
+    res.json({response: body });
   } else {
-    res.status(200).render('index', {'response':{body:{name:food, instructions:'Recipe not found.'}}});
+    res.status(200).render('index', {'response':{name:food, instructions:'Recipe not found.'}});
   }
 });
 
@@ -62,11 +62,13 @@ router.post('/', (req, res) => {
     ingredients: ingredients,
   };
 
-  console.log(recipes)
+  
   const body = recipes[name]
+  console.log(recipes[name])
+  console.log({'response': recipes[name]})
 
   // Return the newly added recipe as a JSON response
-  res.status(200).json({'response':{ body }});
+  res.status(200).json({'response': recipes[name] });
 });
 
 

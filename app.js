@@ -25,11 +25,21 @@ app.use('/images', imagesRouter);
 //app.use('/images', upload.array('images'), imagesRouter);
 
 
-app.get('/main.js', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'main.js'));
+app.get('/index.js', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.js'));
+});
+
+app.get('/', (req, res) => {
+  // Assuming your response 'body' is an object
+  const responseBody = { message: 'Hello, this is the response body.' };
+
+  // Render 'index.ejs' and pass the response body as data
+  res.render('index', { response: responseBody });
 });
 
 app.listen(() => console.log(`Server started on port`));
 
 
 module.exports = app;
+
+

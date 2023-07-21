@@ -7,6 +7,7 @@ const submitButton = document.getElementById('submit');
 const ingredients = [];
 const instructions = [];
 
+
 //images 
 const imageForm  = document.getElementById('image-form');
 //const imageInput = document.getElementById('image-input');
@@ -82,5 +83,37 @@ imageForm.addEventListener('submit', (event) => {
   .catch(error => {
     console.error('Error:', error);
   });
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  const food = 'pizza';
+  const apiUrl = `/recipe/${food}`;
+  if(!document.getElementById('recipe-name').innerHTML){
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      if (data) {
+        console.log(data)
+        const recipe = data.response;
+        document.getElementById('recipe-name').innerHTML = recipe.name;
+        const instructionsList = document.getElementById('instructions');
+        recipe.instructions.forEach(instruction => {
+          const li = document.createElement('li');
+          li.textContent = instruction;
+          instructionsList.appendChild(li);
+        });
+
+        const ingredientsList = document.getElementById('ingredients');
+        recipe.ingredients.forEach(ingredient => {
+          const li = document.createElement('li');
+          li.textContent = ingredient;
+          ingredientsList.appendChild(li);
+        });
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+  }
 });
 
