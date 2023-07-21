@@ -23,6 +23,13 @@ const recipes = {
     instructions: ['set oven to 200', 'put cassabox in oven', 'bake for 26 min'],
     ingredients: ["frozen pizza", "ketchup"],
   },
+
+  Lasagna:
+  {
+    name: 'Lasagna',
+    instructions: ['set oven to 350', 'put lasagna in oven', 'bake for 8 min','pour milk in glass'],
+    ingredients: ["frozen Lasagna", "milk"],
+  },
 };
 
 
