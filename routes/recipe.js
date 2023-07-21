@@ -63,9 +63,10 @@ router.post('/', (req, res) => {
   };
 
   console.log(recipes)
+  const body = recipes[name]
 
   // Return the newly added recipe as a JSON response
-  res.status(200).json(recipes[name.toLowerCase()]);
+  res.status(200).json({'response':{ body }});
 });
 
 

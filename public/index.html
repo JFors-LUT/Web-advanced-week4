@@ -11,7 +11,8 @@
   <title>Add New Recipe</title>
 </head>
 <body>
-  <div>
+  <div class="container">
+  <div class="col">
     <h1>Recipe: <span id="recipe-name"></span></h1>
     <h2>Instructions:</h2>
     <ul id="instructions"></ul>
@@ -19,7 +20,7 @@
     <ul id="ingredients"></ul>
   </div>
   
-  <div class="container">
+  <div class="col">
     <h1>Add New Recipe</h1>
     <label for="name-text">Name:</label>
     <input type="text" id="name-text">
@@ -36,6 +37,7 @@
       <input type="file" id="image-input" name="images" accept="image/*" multiple>
       <button type="submit">Upload</button>
     </form>
+</div>
 </div>
   
 </body>
