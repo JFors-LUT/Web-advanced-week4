@@ -10,7 +10,7 @@ const instructions = [];
 
 //images 
 const imageForm  = document.getElementById('image-form');
-//const imageInput = document.getElementById('image-input');
+const imageInput = document.getElementById('image-input');
 let imagesList  = [];
 
 addIngredientButton.addEventListener('click', () => {
@@ -61,11 +61,13 @@ imageForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
   const formData = new FormData();
+  const files = imageInput.files;
 
-  for (const file of imageForm.elements['images'].files) {
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
     formData.append('images', file);
-    imagesList.push(file.name); // Add the file name to the list
   }
+  console.log(formData)
 
   fetch('/images', {
     method: 'POST',
@@ -76,7 +78,7 @@ imageForm.addEventListener('submit', (event) => {
   
     console.log(data);
     // clear the form
-    imageForm.reset();
+    //imageForm.reset();
 
 
   })
@@ -88,6 +90,7 @@ imageForm.addEventListener('submit', (event) => {
 window.addEventListener('DOMContentLoaded', () => {
   const food = 'pizza';
   const apiUrl = `/recipe/${food}`;
+  
   if(!document.getElementById('recipe-name').innerHTML){
   fetch(apiUrl)
     .then(response => response.json())

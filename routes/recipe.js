@@ -33,8 +33,8 @@ const recipes = {
   Tikka_Masala:
   {
     name: 'Tikka_Masala',
-    instructions: ['lahti', 'ku', 'tikka','massalasta'],
-    ingredients: ["tikka", "curry"],
+    instructions: ['lahti', 'bake for 8 min','pour milk in glass'],
+    ingredients: ["frozen Lasagna", "milk"],
   },
 };
 
@@ -47,7 +47,7 @@ router.get('/:food', (req, res) => {
     res.render('index', {'response': body });
     
   }else if (body) {
-    res.json({response: body });
+    res.json({'response': body });
   } else {
     res.status(200).render('index', {'response':{name:food, instructions:'Recipe not found.'}});
   }
