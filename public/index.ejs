@@ -11,21 +11,29 @@
   </head>
   <body>
     <div class="container">
-      <div>
-    <h1>Recipe: <%= recipe.name %></h1>
-    <h2>Instructions:</h2>
-    <ul id="instructions">
-      <% recipe.instructions.forEach(instruction => { %>
-        <li><%= instruction %></li>
-      <% }); %>
-    </ul>
-    <h2>Ingredients:</h2>
-    <ul id="ingredients">
-      <% recipe.ingredients.forEach(ingredient => { %>
-        <li><%= ingredient %></li>
-      <% }); %>
-    </ul>
-  </div>
+      
+      <% if (recipe.name) { %>
+        <div>
+          <h1>Recipe: <%= recipe.name %></h1>
+          <h2>Instructions:</h2>
+          <ul id="instructions">
+            <% recipe.instructions.forEach(instruction => { %>
+              <li><%= instruction %></li>
+            <% }); %>
+          </ul>
+          <h2>Ingredients:</h2>
+          <ul id="ingredients">
+            <% recipe.ingredients.forEach(ingredient => { %>
+              <li><%= ingredient %></li>
+            <% }); %>
+          </ul>
+        </div>
+      <% } else if (recipe.message) { %>
+        <div>
+          <h1><%= recipe.message %></h1>
+        </div>
+      <% } %>
+      
     <div>
       <h1>Add New Recipe</h1>
       <label for="name-text">Name:</label>

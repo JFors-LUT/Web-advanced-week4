@@ -27,7 +27,7 @@ router.get('/:food', (req, res) => {
 
   
   } else {
-    res.status(304).send('Recipe not found');
+    res.status(201).render('index', {recipe:{message:'Recipe for '+food+' not found.'}});
   }
 });
 
