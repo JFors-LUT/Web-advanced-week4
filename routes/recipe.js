@@ -6,13 +6,13 @@ const test = {}
 const recipes = {
   pasta:
   {
-    name: 'pasta',
+    name: 'Pasta',
     instructions: ['add water', 'add salt', 'boil pasta'],
     ingredients: ['water', 'salt', 'dry pasta'],
   },
   pizza:
   {
-    name: 'pizza',
+    name: 'Pizza',
     instructions: ['set oven to 200', 'put pizza in oven', 'bake for 12 min', "put ketchup on top"],
     ingredients: ["frozen pizza", "ketchup"],
   },
