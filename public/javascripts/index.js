@@ -49,16 +49,43 @@ fetch('/recipe/', {
   .then((response) => response.json())
   .then((data) => {
     console.log(data);
+
+   
+    const formData = new FormData();
+    const files = imageInput.files;
+
+    if(files.length>0){
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      formData.append('images', file);
+    }
+
+    fetch('/images', {
+      method: 'POST',
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        // Clear the form
+        imageForm.reset();
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    }
   })
+  
   .catch((error) => {
     console.error('Error:', error);
   });
+
 });
 
 
 //image form POST
 imageForm.addEventListener('submit', (event) => {
-  event.preventDefault();
+
 
   const formData = new FormData();
   const files = imageInput.files;
@@ -67,8 +94,6 @@ imageForm.addEventListener('submit', (event) => {
     const file = files[i];
     formData.append('images', file);
   }
-  console.log(formData)
-
   fetch('/images', {
     method: 'POST',
     body: formData,
@@ -79,8 +104,6 @@ imageForm.addEventListener('submit', (event) => {
     console.log(data);
     // clear the form
     //imageForm.reset();
-
-
   })
   .catch(error => {
     console.error('Error:', error);
