@@ -27,7 +27,7 @@ router.get('/:food', (req, res) => {
 
   
   } else {
-    res.status(404).send('Recipe not found');
+    res.status(304).send('Recipe not found');
   }
 });
 
