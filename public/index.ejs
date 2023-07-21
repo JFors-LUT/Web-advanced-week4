@@ -12,25 +12,26 @@
   <body>
     <div class="container">
       
-      <% if (recipe.name) { %>
+      <% if (response.body.ingredients) { %>
         <div class="col">
-          <h1>Recipe: <%= recipe.name %></h1>
+          <h1>Recipe: <%= response.body.name %></h1>
           <h2>Instructions:</h2>
           <ul id="instructions">
-            <% recipe.instructions.forEach(instruction => { %>
+            <% response.body.instructions.forEach(instruction => { %>
               <li><%= instruction %></li>
             <% }); %>
           </ul>
           <h2>Ingredients:</h2>
           <ul id="ingredients">
-            <% recipe.ingredients.forEach(ingredient => { %>
+            <% response.body.ingredients.forEach(ingredient => { %>
               <li><%= ingredient %></li>
             <% }); %>
           </ul>
         </div>
-      <% } else if (recipe.message) { %>
+      <% } else if (response.body.name) { %>
         <div>
-          <h1><%= recipe.message %></h1>
+          <h1><%= response.body.name %></h1>
+          <h1><%= response.body.instructions %></h1>
         </div>
       <% } %>
       

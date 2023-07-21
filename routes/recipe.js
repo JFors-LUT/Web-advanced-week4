@@ -28,13 +28,14 @@ const recipes = {
 
 router.get('/:food', (req, res) => {
   const food = req.params.food;
-  const recipe = recipes[food];
-  if (recipe) {
-    res.render('index', { recipe });
+  const body = recipes[food];
+  if (body) {
+    console.log({response:{ body }})
+    res.render('index', {'response':{ body }});
 
   
   } else {
-    res.status(200).render('index', {recipe:{message:'Recipe for '+food+' not found.'}});
+    res.status(200).render('index', {'response':{body:{name:food, instructions:'Recipe not found.'}}});
   }
 });
 
