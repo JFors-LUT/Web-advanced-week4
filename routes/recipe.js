@@ -34,13 +34,14 @@ const recipes = {
 
 
 router.get('/:food', (req, res) => {
+  const acceptHeader = req.headers.accept;
   const food = req.params.food;
   const body = recipes[food];
-  if (body) {
-    console.log({response:{ body }})
+  if (acceptHeader && acceptHeader.includes('application/xml')){
     res.render('index', {'response':{ body }});
-
-  
+    
+  }else if (body) {
+    res.json({response:{ body }});
   } else {
     res.status(200).render('index', {'response':{body:{name:food, instructions:'Recipe not found.'}}});
   }
