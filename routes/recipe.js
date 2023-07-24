@@ -33,8 +33,8 @@ const recipes = {
   Tikka_Masala:
   {
     name: 'Tikka_Masala',
-    instructions: ['lahti', 'bake for 8 min','pour milk in glass'],
-    ingredients: ["frozen Lasagna", "milk"],
+    instructions: ['lahti', 'bake for 8 min','pour milk water and spices'],
+    ingredients: ["rice I guess", "some spices"],
   },
 };
 
@@ -44,12 +44,17 @@ router.get('/:food', (req, res) => {
   const food = req.params.food;
   const body = recipes[food];
   if (acceptHeader && acceptHeader.includes('application/xml')){
-    res.render('index', {'response': body });
-    
+    if(body !== undefined){
+      res.render('index',  body );
+    }else{
+      res.status(200).render('index', {name:food, instructions:['Recipe not found.'], ingredients: []},);
+    }
   }else if (body) {
-    res.json({'response': body });
+
+    res.json(body);
   } else {
-    res.status(200).render('index', {'response':{name:food, instructions:'Recipe not found.'}});
+    console.log("test")
+    
   }
 });
 

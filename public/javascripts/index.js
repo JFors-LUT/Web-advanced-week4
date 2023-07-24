@@ -111,16 +111,17 @@ imageForm.addEventListener('submit', (event) => {
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-  const food = 'pizza';
+  const food = 'Tikka_Masala';
   const apiUrl = `/recipe/${food}`;
   
   if(!document.getElementById('recipe-name').innerHTML){
   fetch(apiUrl)
     .then(response => response.json())
+    
     .then(data => {
       if (data) {
-        console.log(data)
-        const recipe = data.response;
+        const recipe = data;
+        //const recipe = data;
         document.getElementById('recipe-name').innerHTML = recipe.name;
         const instructionsList = document.getElementById('instructions');
         recipe.instructions.forEach(instruction => {
